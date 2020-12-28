@@ -19,6 +19,10 @@ export default {
       isMobile: false,
       list: [
         {
+          url: require('@/assets/img/作品-16.png'),
+          title: '微信小程序活动页'
+        },
+        {
           url: require('@/assets/img/作品-8.png'),
           title: 'KM服务订单H5'
         },
