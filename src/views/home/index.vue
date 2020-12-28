@@ -19,10 +19,6 @@ export default {
       isMobile: false,
       list: [
         {
-          url: require('@/assets/img/作品-16.png'),
-          title: '微信小程序活动页'
-        },
-        {
           url: require('@/assets/img/作品-8.png'),
           title: 'KM服务订单H5'
         },
@@ -35,6 +31,10 @@ export default {
           title: '上药控股微信报账系统'
         },
         {
+          url: require('@/assets/img/作品-3.jpg'),
+          title: '第十五届世界武术竞标赛英文网'
+        },
+        {
           url: require('@/assets/img/作品-9.png'),
           title: '奉贤税务局减税降费'
         },
@@ -42,12 +42,10 @@ export default {
           url: require('@/assets/img/作品-1.png'),
           title: '默克差旅助手'
         },
-
         {
           url: require('@/assets/img/作品-13.png'),
           title: '上海体育会员系统小程序'
         },
-
         {
           url: require('@/assets/img/作品-2.png'),
           title: '健康上海 人人来赛'
@@ -69,6 +67,10 @@ export default {
           title: '汇添富基金十五周年邀请函'
         },
         {
+          url: require('@/assets/img/作品-16.png'),
+          title: '悠哈小程序'
+        },
+        {
           url: require('@/assets/img/作品-15.png'),
           title: 'Edwards公司介绍设计一'
         },
@@ -77,10 +79,7 @@ export default {
           url: require('@/assets/img/作品-4.png'),
           title: '默克色彩库小程序'
         },
-        {
-          url: require('@/assets/img/作品-3.jpg'),
-          title: '第十五届世界武术竞标赛英文网'
-        },
+
         {
           url: require('@/assets/img/作品-6.png'),
           title: '惠灵顿学院招生设计'
