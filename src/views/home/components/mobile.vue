@@ -49,6 +49,8 @@ export default {
 
 <style lang="scss" scoped>
 .web-site {
+  height: auto;
+  min-height: 100vh;
   background: #f5f5f5;
   --gbshadow-0: 0 none;
   --gbshadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.02), 0 4px 8px 0 rgba(0, 0, 0, 0.02);

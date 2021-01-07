@@ -2,6 +2,10 @@
   <div>
     <Pc v-if="!isMobile" :list="list" />
     <Mobile v-else :list="list" />
+
+    <div class="footer">
+      <div>Photo By : Aires</div>
+    </div>
   </div>
 </template>
 
@@ -100,3 +104,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.footer {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 14px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 28px;
+}
+</style>
