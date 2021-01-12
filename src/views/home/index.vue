@@ -1,10 +1,12 @@
 <template>
   <div>
-    <Pc v-if="!isMobile" :list="list" />
-    <Mobile v-else :list="list" />
+    <Pc v-if="!isMobile"
+        :list="list" />
+    <Mobile v-else
+            :list="list" />
 
     <div class="footer">
-      <div>Photo By : Aires</div>
+      <div>Photo By : {{ name }}</div>
     </div>
   </div>
 </template>
@@ -18,8 +20,9 @@ export default {
     Pc,
     Mobile
   },
-  data() {
+  data () {
     return {
+      name: 'Aires',
       isMobile: false,
       list: [
         {
@@ -91,7 +94,7 @@ export default {
       ]
     }
   },
-  created() {
+  created () {
     if (
       navigator.userAgent.match(
         /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
@@ -100,6 +103,52 @@ export default {
       this.isMobile = true
     } else {
       this.isMobile = false
+    }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      const watermakr = document.createElement('div')
+      watermakr.className = 'watermark'
+      watermakr.style.backgroundImage = `url(${this.createWaterMark()})`
+      document.body.appendChild(watermakr)
+
+      // 观察器的配置（需要观察什么变动）
+      const config = { attributes: true, childList: true, subtree: true }
+      // 当观察到变动时执行的回调函数
+      const callback = function (mutationsList, observer) {
+        // Use traditional 'for loops' for IE 11
+        for (let mutation of mutationsList) {
+          mutation.removedNodes.forEach(function (item) {
+            if (item === watermakr) {
+              document.body.appendChild(watermakr)
+            }
+          })
+        }
+      }
+      // 监听元素
+      const targetNode = document.body
+      // 创建一个观察器实例并传入回调函数
+      const observer = new MutationObserver(callback)
+      // 以上述配置开始观察目标节点
+      observer.observe(targetNode, config)
+    })
+  },
+  methods: {
+    createWaterMark () {
+      const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" width="180px" height="100px">
+        <text x="0px" y="30px" dy="16px"
+        text-anchor="start"
+        stroke="#000"
+        stroke-opacity="0.15"
+        fill="none"
+        transform="rotate(-20)"
+        font-weight="100"
+        font-size="16"
+        >
+         ${this.name}
+        </text>
+      </svg>`
+      return `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(svgStr)))}`
     }
   }
 }
@@ -113,5 +162,16 @@ export default {
   font-size: 20px;
   font-weight: bold;
   line-height: 28px;
+}
+</style>
+<style>
+.watermark {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  pointer-events: none;
+  background-repeat: repeat;
 }
 </style>
