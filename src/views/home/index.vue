@@ -1,9 +1,7 @@
 <template>
   <div>
-    <Pc v-if="!isMobile"
-        :list="list" />
-    <Mobile v-else
-            :list="list" />
+    <Pc v-if="!isMobile" :list="list" />
+    <Mobile v-else :list="list" />
 
     <div class="footer">
       <div>Photo By : {{ name }}</div>
@@ -20,81 +18,93 @@ export default {
     Pc,
     Mobile
   },
-  data () {
+  data() {
     return {
       name: 'Aires',
       isMobile: false,
       list: [
         {
-          url: require('@/assets/img/作品-8.png'),
+          url: require('@/assets/img/demo8.png'),
           title: 'KM服务订单H5'
         },
         {
-          url: require('@/assets/img/作品-5.png'),
+          url: require('@/assets/img/demo5.png'),
           title: '上海体育投票活动'
         },
         {
-          url: require('@/assets/img/作品-11.png'),
+          url: require('@/assets/img/demo11.png'),
           title: '上药控股微信报账系统'
         },
         {
-          url: require('@/assets/img/作品-3.jpg'),
+          url: require('@/assets/img/demo3.jpg'),
           title: '第十五届世界武术竞标赛英文网'
         },
         {
-          url: require('@/assets/img/作品-9.png'),
+          url: require('@/assets/img/demo9.png'),
           title: '奉贤税务局减税降费'
         },
         {
-          url: require('@/assets/img/作品-1.png'),
+          url: require('@/assets/img/demo1.png'),
           title: '默克差旅助手'
         },
         {
-          url: require('@/assets/img/作品-13.png'),
+          url: require('@/assets/img/demo13.png'),
           title: '上海体育会员系统小程序'
         },
         {
-          url: require('@/assets/img/作品-2.png'),
+          url: require('@/assets/img/demo2.png'),
           title: '健康上海 人人来赛'
         },
         {
-          url: require('@/assets/img/作品-10.png'),
+          url: require('@/assets/img/demo10.png'),
           title: '疫情防控税费优惠一点通'
         },
         {
-          url: require('@/assets/img/作品-14.png'),
+          url: require('@/assets/img/demo14.png'),
           title: '默克物资请购、S&T等'
         },
         {
-          url: require('@/assets/img/作品-12.png'),
+          url: require('@/assets/img/demo12.png'),
           title: '上海体育2019新春祝福H5'
         },
         {
-          url: require('@/assets/img/作品-7.png'),
+          url: require('@/assets/img/demo7.png'),
           title: '汇添富基金十五周年邀请函'
         },
         {
-          url: require('@/assets/img/作品-16.png'),
+          url: require('@/assets/img/demo16.png'),
           title: '悠哈小程序'
         },
         {
-          url: require('@/assets/img/作品-15.png'),
+          url: require('@/assets/img/demo15.png'),
           title: 'Edwards公司介绍设计一'
         },
 
         {
-          url: require('@/assets/img/作品-4.png'),
+          url: require('@/assets/img/demo4.png'),
           title: '默克色彩库小程序'
         },
 
         {
-          url: require('@/assets/img/作品-6.png'),
+          url: require('@/assets/img/demo6.png'),
           title: '惠灵顿学院招生设计'
+        },
+        {
+          url: require('@/assets/img/demo17.png'),
+          title: '移动ERP设计'
+        },
+        {
+          url: require('@/assets/img/demo18.jpg'),
+          title: '亮达渔网'
+        },
+        {
+          url: require('@/assets/img/demo19.png'),
+          title: 'CMS系统'
         }
       ]
     }
   },
-  created () {
+  created() {
     if (
       navigator.userAgent.match(
         /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
@@ -105,7 +115,7 @@ export default {
       this.isMobile = false
     }
   },
-  mounted () {
+  mounted() {
     this.$nextTick(() => {
       const watermakr = document.createElement('div')
       watermakr.className = 'watermark'
@@ -115,10 +125,10 @@ export default {
       // 观察器的配置（需要观察什么变动）
       const config = { attributes: true, childList: true, subtree: true }
       // 当观察到变动时执行的回调函数
-      const callback = function (mutationsList, observer) {
+      const callback = function(mutationsList, observer) {
         // Use traditional 'for loops' for IE 11
         for (let mutation of mutationsList) {
-          mutation.removedNodes.forEach(function (item) {
+          mutation.removedNodes.forEach(function(item) {
             if (item === watermakr) {
               document.body.appendChild(watermakr)
             }
@@ -134,7 +144,7 @@ export default {
     })
   },
   methods: {
-    createWaterMark () {
+    createWaterMark() {
       const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" width="180px" height="100px">
         <text x="0px" y="30px" dy="16px"
         text-anchor="start"
